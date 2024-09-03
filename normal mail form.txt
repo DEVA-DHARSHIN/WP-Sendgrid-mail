@@ -1,0 +1,48 @@
+// Function to display the form and handle email sending
+function simple_email_sender_form() {
+    // Check if the form is submitted
+    if (isset($_POST['send_email'])) {
+        // Get the form values
+        $to = sanitize_email($_POST['to']);
+        $subject = sanitize_text_field($_POST['subject']);
+        $message = sanitize_textarea_field($_POST['message']);
+
+        // Send the email using wp_mail()
+        if (wp_mail($to, $subject, $message)) {
+            echo '<div class="notice notice-success"><p>Email sent successfully!</p></div>';
+        } else {
+            echo '<div class="notice notice-error"><p>Failed to send the email.</p></div>';
+        }
+    }
+
+    // Display the form
+    echo '
+    <form method="post" action="">
+        <p>
+            <label for="to">To:</label>
+            <input type="email" name="to" required />
+        </p>
+        <p>
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" required />
+        </p>
+        <p>
+            <label for="message">Message:</label>
+            <textarea name="message" required></textarea>
+        </p>
+        <p>
+            <input type="submit" name="send_email" value="Send Email" />
+        </p>
+    </form>';
+}
+// Function to add menu item
+function simple_email_sender_menu() {
+    add_menu_page(
+        'Simple Email Sender',      // Page title
+        'Email Sender',             // Menu title
+        'manage_options',           // Capability
+        'simple-email-sender',      // Menu slug
+        'simple_email_sender_form'  // Callback function
+    );
+}
+add_action('admin_menu', 'simple_email_sender_menu');
