@@ -4,12 +4,21 @@ Plugin Name: eMail Sender
 Description: Used to send a mail using SendGrid.
 Author: DD
 */
-
 require_once __DIR__ . '/vendor/autoload.php';
 use SendGrid\Mail\Mail;
-echo 
-'<div class="commona"></div>';
+
+function display_ing(){
+    echo'
+    <div class="container">
+        <div class="extra">
+            <h2><b><i>HELLO Buddies<i></b></h2>
+            <img src="' . plugins_url('images/mail.png', __FILE__).'" class="imag"/>
+        </div>
+    </div>
+    ';
+}
 function email_sender_form() {
+    display_ing();
 
     if (isset($_POST['send_email'])) {
         
@@ -50,8 +59,8 @@ function email_sender_form() {
 
     echo '
   
-
-    <form method="post" action="" class="common">
+    <div class="container">
+    <form method="post" action="" class="overall">
         <p class="heading"> Email Sender </p>
         <p>
             <label for="to">  To:</label>
@@ -68,7 +77,8 @@ function email_sender_form() {
         <p>
             <input type="submit" name="send_email" class="sendgrid-button" value="Send Email" />
         </p>
-    </form>';
+    </form>
+    </div>';
 }
 
 function sender_menu() {
@@ -81,7 +91,6 @@ function sender_menu() {
     );
 }
 add_action('admin_menu', 'sender_menu');
-$plugin_url = plugin_dir_url(__FILE__);
 function sgMailAddStyles() {
     wp_enqueue_style('sendgrid-styles', plugin_dir_url(__FILE__) . '/style.css');
 }
