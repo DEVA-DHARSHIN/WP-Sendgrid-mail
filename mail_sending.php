@@ -1,9 +1,13 @@
 <?php
+
 /*
 Plugin Name: eMail Sender
 Description: Used to send a mail using SendGrid.
 Author: DD
 */
+echo'
+<div id="unique-plugin-section">';
+
 require_once __DIR__ . '/vendor/autoload.php';
 use SendGrid\Mail\Mail;
 
@@ -11,11 +15,18 @@ function display_ing(){
     echo'
     <div class="container">
         <div class="extra">
-            <h2><b><i>HELLO Buddies<i></b></h2>
-            <img src="' . plugins_url('images/mail.png', __FILE__).'" class="imag"/>
+
+            <div class="content">
+                <h2><b><i>Great ease of use</b></h2>
+                <h2><b><i> and deliverability</b></h2>
+            </div>
+           
+            <p>This tool offers great ease of use and exceptional deliverability, providing an effective and streamlined way to communicate with our product support team.</p>
         </div>
     </div>
     ';
+    // <img src="' . plugins_url('images/mail.png', __FILE__).'" class="imag"/>
+    // <img src="'.plugin_url('images/logo.png',__FILE__).'"  class="sendgrid-logo" />
 }
 function email_sender_form() {
     display_ing();
@@ -95,4 +106,6 @@ function sgMailAddStyles() {
     wp_enqueue_style('sendgrid-styles', plugin_dir_url(__FILE__) . '/style.css');
 }
 add_action('admin_enqueue_scripts', 'sgMailAddStyles');
+
+echo'</div>';
 ?>
