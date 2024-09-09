@@ -1,0 +1,33 @@
+.email-sender-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 500px;
+    margin-top: 20px;
+}
+.email-sender-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.email-sender-form input[type="text"],
+.email-sender-form input[type="email"],
+.email-sender-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+.email-sender-form input[type="submit"] {
+    background-color: #0073aa;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.email-sender-form input[type="submit"]:hover {
+    background-color: #005177;
+}
