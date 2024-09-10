@@ -1,78 +1,99 @@
-.notice.notice-success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    margin-top: 50px;
-    max-width: 500px;
-    margin: 20px auto;   
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  margin-top: 50px;
+  padding: 20px; 
+  background: linear-gradient(to right, lightblue, green);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start; 
 }
 
-.common {
-    position: relative; /* Ensure relative positioning to correctly position the ::before pseudo-element */
-    background-color: #d4edda;
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 500px;
-    margin: 200px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.image {
+  flex: 1;
+  margin-right: 20px; 
 }
 
-.common::before {
-    content: "";
-    background-image: url("/home/devadharshini/wp-docker/docker-compose/wordpress_data/wp-content/plugins/mail-sending/email.jpeg"); /* Adjust path accordingly */
-    background-size: cover; /* Ensures the background image covers the area */
-    background-position: center; /* Centers the background image */
-    opacity: 0.1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1; /* Place the background image behind the content */
+.image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; 
+}
+
+.overall {
+  flex: 2; 
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  margin: 10px 0;
 }
 
 .heading {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .sendgrid-input, .sendgrid-input1, .sendgrid-textarea {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 10px auto;
-    display: block;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.sendgrid-input:focus, .sendgrid-input1:focus, .sendgrid-textarea:focus {
+  border-color: #0073aa;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 115, 170, 0.5);
 }
 
 .sendgrid-textarea {
-    height: 120px;
-    resize: vertical;
+  height: 150px;
+  resize: vertical;
 }
 
 .sendgrid-button {
-    width: 100%;
-    padding: 12px;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 5px;
-    background-color: #0073aa;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: #0073aa;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .sendgrid-button:hover {
-    background-color: #005177;
+  background-color: #005a87;
 }
 
-.sendgrid-response {
-    margin-top: 100px;
-    font-size: 14px;
+.notice {
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 4px;
+}
+
+.notice-success {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.notice-error {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
 }
